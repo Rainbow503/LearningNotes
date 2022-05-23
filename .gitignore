@@ -1,0 +1,70 @@
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+.mvn
+
+## 打包文件
+/target
+/*.iml
+
+## 忽略 相关 软件 ##
+/Software
+
+## 忽略 相关 文件 ##
+/Datum
+/书籍
+/杂记
+/校招面试
+/随笔记录
+/机器学习
+/考研资料
+/python
+
+## Learning At School ##
+/计算机网络
+/操作系统
+/设计模式
+
+## 提交目录 ##
+/doc
+/ELK
+/Golang
+/Linux
+/SpringCloud
+/WEB
+/SpringBoot
+/Spring
+/Node
+/DataStructure
+/DataBase
+/Applet
+/Algorithm
+/分布式
+/Vue
+/云原生
