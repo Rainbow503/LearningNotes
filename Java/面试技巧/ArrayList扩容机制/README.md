@@ -90,9 +90,9 @@ ArrayList在顺序添加元素的时候非常场面，只是往数组中添加�
 
 首先List接口一共有三个实现类：ArrayList、Vector、LinkedList
 
-Vector 和 ArrayList一样，都是通过数组来实现的，不同的是 Vector支持线程的同步，也就是说某一个时刻下，只有一个线程能够写Vector，避免了多线程同时写而引起的不一致的问题，但实现同步需要很高的代Synchronized 因此，Vector的效率比ArrayList慢
+Vector 和 ArrayList一样，都是通过数组来实现的，不同的是 Vector支持线程的同步，也就是说某一个时刻下，只有一个线程能够写Vector，避免了多线程同时写而引起的不一致的问题，但实现同步需要很高的代`Synchronized `因此，`Vector`的效率比`ArrayList`慢
 
-同时Vector 和 ArrayList的扩容机制有差异的，Vector每次扩容为数组长度的一倍，而ArrayList则是原来数组长度的1.5倍。
+同时`Vector `和 `ArrayList`的扩容机制有差异的，`Vector`每次扩容为数组长度的一倍，而`ArrayList`则是原来数组长度的1.5倍。
 
 ## 扩容机制
 

@@ -30,22 +30,21 @@
 
 出于安全原因，浏览器限制从脚本内发起的跨源HTTP请求。 例如，XMLHttpRequest和Fetch API遵循同源策略。 这意味着使用这些API的Web应用程序只能从加载应用程序的同一个域请求HTTP资源，除非响应报文包含了正确CORS响应头。
 
-Spring 中对 CORS 规则的校验，都是通过委托给 DefaultCorsProcessor实现的。
+Spring 中对 CORS 规则的校验，都是通过委托给 `DefaultCorsProcessor `实现的。
 
 DefaultCorsProcessor 处理过程如下：
 
 - 判断依据是 Header中是否包含 Origin。如果包含则说明为 CORS请求，转到 2；否则，说明不是 CORS 请求，不作任何处理。
 
-- 判断 response 的 Header 是否已经包含 Access-Control-Allow-Origin，如果包含，证明已经被处理过了, 转到 3，否则不再处理。
+- 判断 response 的 Header 是否已经包含 `Access-Control-Allow-Origin`，如果包含，证明已经被处理过了, 转到 3，否则不再处理。
 
 - 判断是否同源，如果是则转交给负责该请求的类处理
   是否配置了 CORS 规则，如果没有配置，且是预检请求，则拒绝该请求，如果没有配置，且不是预检请求，则交给负责该请求的类处理。如果配置了，则对该请求进行校验。
   校验就是根据 CorsConfiguration 这个类的配置进行判断：
-
   - 判断 origin 是否合法
-
+  
   - 判断 method 是否合法
-
+  
   - 判断 header是否合法
 
 如果全部合法，则在 response header中添加响应的字段，并交给负责该请求的类处理，如果不合法，则拒绝该请求

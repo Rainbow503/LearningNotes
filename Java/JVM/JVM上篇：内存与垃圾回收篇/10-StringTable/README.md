@@ -93,7 +93,7 @@ String 的 String Pool 是一个固定大小的 Hashtable，默认值大小长�
 
 - 如果不是用双引号声明的 String 对象，可以使用 String 提供的 intern()方法。这个后面重点谈
 
-Java 6 及以前，字符串常量池存放在永久代
+Java 6 及以前，字符串常量池存放在**永久代**
 
 Java 7 中 Oracle 的工程师对字符串池的逻辑做了很大的改变，即将<mark>字符串常量池的位置调整到 Java 堆内</mark>
 
@@ -101,7 +101,7 @@ Java 7 中 Oracle 的工程师对字符串池的逻辑做了很大的改变，�
 
 - 字符串常量池概念原本使用得比较多，但是这个改动使得我们有足够的理由让我们重新考虑在 Java 7 中使用`String.intern()`。
 
-Java8 元空间，字符串常量在堆
+Java8 元空间，**字符串常量在堆**
 
 ![image-20200711093546398](https://img-blog.csdnimg.cn/img_convert/27b7bf706fc1724baf503eac9b49c7fc.png)
 
