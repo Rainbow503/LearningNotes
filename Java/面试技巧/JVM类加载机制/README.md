@@ -6,15 +6,15 @@
 
 ### 启动类加载器
 
-Bootstrap ClassLoader，负责加载JAVA_HOME\lib目录中的，或通过-Xbootclasspath 参数指定路径下的，且被虚拟机认可（按文件名识别，如tr.jar）的类
+Bootstrap ClassLoader，负责加载`JAVA_HOME\lib`目录中的，或通过`-Xbootclasspath` 参数指定路径下的，且被虚拟机认可（按文件名识别，如`tr.jar`）的类
 
 ### 扩展类加载器
 
-Extension ClassLoader，负责加载JAVA_HOME\lib\ext目录中的，或通过java.ext.dirs系统变量指定路径中的类库。
+Extension ClassLoader，负责加载`JAVA_HOME\lib\ext`目录中的，或通过`java.ext.dirs`系统变量指定路径中的类库。
 
 ### 应用程序类加载器
 
-Application ClassLoader，负责加载用户路径（classpath）上的类库。JVM通过双亲委派进行类的加载，当然我们也可以通过继承java.lang.ClassLoader实现自定义的类加载器。
+Application ClassLoader，负责加载用户路径（`classpath`）上的类库。JVM通过双亲委派进行类的加载，当然我们也可以通过继承`java.lang.ClassLoader`实现自定义的类加载器。
 
 ## 类加载过程
 
