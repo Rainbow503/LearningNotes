@@ -10,7 +10,7 @@
 
 回到代码世界中，一个共享数据加了悲观锁，那线程每次想操作这个数据前都会假设其他线程也可能会操作这个数据，所以每次操作前都会上锁，这样其他线程想操作这个数据拿不到锁只能阻塞了。
 
-<img src="pics/image-20220523184445664.png" alt="image-20220523184445664" style="zoom:50%;" />
+<img src="../pics/image-20220523184445664.png" alt="image-20220523184445664" style="zoom:50%;" />
 
 
 
@@ -26,7 +26,7 @@
 
 回到代码世界中，乐观锁操作数据时不会上锁，在更新的时候会判断一下在此期间是否有其他线程去更新这个数据。
 
-<img src="pics/image-20220523184521645.png" alt="image-20220523184521645" style="zoom:50%;" />
+<img src="../pics/image-20220523184521645.png" alt="image-20220523184521645" style="zoom:50%;" />
 
 乐观锁可以使用`版本号机制`和`CAS算法`实现。在 Java 语言中 `java.util.concurrent.atomic`包下的原子类就是使用CAS 乐观锁实现的。
 
@@ -46,7 +46,7 @@
 
 `独占锁`是指锁一次只能被一个线程所持有。如果一个线程对数据加上排他锁后，那么其他线程不能再对该数据加任何类型的锁。获得独占锁的线程即能读数据又能修改数据。
 
-<img src="pics/image-20220523184601647.png" alt="image-20220523184601647" style="zoom:67%;" />
+<img src="../pics/image-20220523184601647.png" alt="image-20220523184601647" style="zoom:67%;" />
 
 JDK中的`synchronized`和`java.util.concurrent(JUC)`包中Lock的实现类就是独占锁。
 
@@ -56,7 +56,7 @@ JDK中的`synchronized`和`java.util.concurrent(JUC)`包中Lock的实现类就�
 
 `共享锁`是指锁可被多个线程所持有。如果一个线程对数据加上共享锁后，那么其他线程只能对数据再加共享锁，不能加独占锁。获得共享锁的线程只能读数据，不能修改数据。
 
-<img src="pics/image-20220523184626155.png" alt="image-20220523184626155" style="zoom:50%;" />
+<img src="../pics/image-20220523184626155.png" alt="image-20220523184626155" style="zoom:50%;" />
 
 在 JDK 中 `ReentrantReadWriteLock` 就是一种共享锁。
 
@@ -68,7 +68,7 @@ JDK中的`synchronized`和`java.util.concurrent(JUC)`包中Lock的实现类就�
 
 `互斥锁`是独占锁的一种常规实现，是指某一资源同时只允许一个访问者对其进行访问，具有唯一性和排它性。
 
-<img src="pics/image-20220523184708935.png" alt="image-20220523184708935" style="zoom:50%;" />
+<img src="../pics/image-20220523184708935.png" alt="image-20220523184708935" style="zoom:50%;" />
 
 互斥锁一次只能一个线程拥有互斥锁，其他线程只有等待。
 
@@ -82,7 +82,7 @@ JDK中的`synchronized`和`java.util.concurrent(JUC)`包中Lock的实现类就�
 
 读写锁相比于互斥锁并发程度更高，每次只有一个写线程，但是同时可以有多个线程并发读。
 
-<img src="pics/image-20220523184731868.png" alt="image-20220523184731868" style="zoom:50%;" />
+<img src="../pics/image-20220523184731868.png" alt="image-20220523184731868" style="zoom:50%;" />
 
 在 JDK 中定义了一个读写锁的接口：`ReadWriteLock`
 
@@ -110,7 +110,7 @@ public interface ReadWriteLock {
 
 `公平锁`是指多个线程按照申请锁的顺序来获取锁，这里类似排队买票，先来的人先买，后来的人在队尾排着，这是公平的。
 
-<img src="pics/image-20220523184806727.png" alt="image-20220523184806727" style="zoom:50%;" />
+<img src="../pics/image-20220523184806727.png" alt="image-20220523184806727" style="zoom:50%;" />
 
 在 java 中可以通过构造函数初始化公平锁
 
@@ -125,7 +125,7 @@ Lock lock = new ReentrantLock(true);
 
 `非公平锁`是指多个线程获取锁的顺序并不是按照申请锁的顺序，有可能后申请的线程比先申请的线程优先获取锁，在高并发环境下，有可能造成优先级翻转，或者饥饿的状态（某个线程一直得不到锁）。
 
-<img src="pics/image-20220523184835071.png" alt="image-20220523184835071" style="zoom: 50%;" />
+<img src="../pics/image-20220523184835071.png" alt="image-20220523184835071" style="zoom: 50%;" />
 
 在 java 中 synchronized 关键字是非公平锁，ReentrantLock默认也是非公平锁。
 
@@ -142,7 +142,7 @@ Lock lock = new ReentrantLock(false);
 
 `可重入锁`又称之为`递归锁`，是指同一个线程在外层方法获取了锁，在进入内层方法会自动获取锁。
 
-<img src="pics/image-20220523184909504.png" alt="image-20220523184909504" style="zoom:50%;" />
+<img src="../pics/image-20220523184909504.png" alt="image-20220523184909504" style="zoom:50%;" />
 
 对于Java ReentrantLock而言, 他的名字就可以看出是一个可重入锁。对于Synchronized而言，也是一个可重入锁。
 
@@ -167,7 +167,7 @@ public synchronized void mehtodB() throws Exception{
 
 `自旋锁`是指线程在没有获得锁时不是被直接挂起，而是执行一个忙循环，这个忙循环就是所谓的自旋。
 
-<img src="pics/image-20220523184952897.png" alt="image-20220523184952897" style="zoom:50%;" />
+<img src="../pics/image-20220523184952897.png" alt="image-20220523184952897" style="zoom:50%;" />
 
 自旋锁的目的是为了减少线程被挂起的几率，因为线程的挂起和唤醒也都是耗资源的操作。
 
@@ -199,7 +199,7 @@ CAS 操作如果失败就会一直循环获取当前 value 值然后重试。
 
 分段锁设计目的是将锁的粒度进一步细化，当操作不需要更新整个数组的时候，就仅仅针对数组中的一项进行加锁操作。
 
-![image-20220523190614094](pics/image-20220523190614094.png)
+![image-20220523190614094](../pics/image-20220523190614094.png)
 
 在 Java 语言中 CurrentHashMap 底层就用了分段锁，使用Segment，就可以进行并发使用了。
 
@@ -293,4 +293,4 @@ public synchronized StringBuffer append(String str) {
 }
 ```
 
-![image-20220523190919258](pics/image-20220523190919258.png)
+![image-20220523190919258](../pics/image-20220523190919258.png)
