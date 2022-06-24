@@ -8,7 +8,7 @@
 
 ## 一、J.U.C
 
-JUC 是 Java 的 并发线程 工具包
+JUC 是 Java 的 并发线程 `工具包`
 
 ![image.png](pics/1630682790445-5af64b37-a1f2-4d41-8f8b-f09abecff5f8.png)
 
